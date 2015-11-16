@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NetworkExtension
 
 class ViewController: UIViewController {
     

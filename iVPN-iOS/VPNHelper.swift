@@ -17,7 +17,7 @@ private class KeyChain {
             kSecClass : kSecClassGenericPassword,
             kSecAttrGeneric : key,
             kSecAttrAccount : key,
-            kSecAttrService : NSBundle.mainBundle().bundleIdentifier!,
+            kSecAttrService : NSBundle.mainBundle().bundleIdentifier ?? "",
             kSecAttrAccessible: kSecAttrAccessibleAlwaysThisDeviceOnly,
             kSecMatchLimit : kSecMatchLimitOne,
             kSecReturnPersistentRef : kCFBooleanTrue]
@@ -63,17 +63,17 @@ private class KeyChain {
 }
 
 
-@available(iOS 8.0, *)
+@available(iOS 8.0, *, OSX 10.10, *)
 extension NEVPNManager {
     
     /**
-    连接一个VPN
-    
-    - parameter localizedDescription: VPN连接的标题
-    - parameter protocolObject:       VPN连接配置
-    - parameter complete:             完成回调
-    */
-    @available(iOS 8.0, *)
+     连接一个VPN
+     
+     - parameter localizedDescription: VPN连接的标题
+     - parameter protocolObject:       VPN连接配置
+     - parameter complete:             完成回调
+     */
+    @available(iOS 8.0, *, OSX 10.10, *)
     func connect(localizedDescription: String?, protocolConfiguration: NEVPNProtocol, complete: (error: NEVPNError?) -> Void ) {
         
         self.loadFromPreferencesWithCompletionHandler {
@@ -97,10 +97,17 @@ extension NEVPNManager {
                 rule1.interfaceTypeMatch = NEOnDemandRuleInterfaceType.WiFi
                 rules.append(rule1)
                 
-                // 允许使用蜂窝移动数据流量
+                
                 let rule2 = NEOnDemandRuleConnect();
-                rule2.interfaceTypeMatch = NEOnDemandRuleInterfaceType.Cellular
+                #if os(iOS)
+                    // 允许使用蜂窝移动数据流量
+                    rule2.interfaceTypeMatch = NEOnDemandRuleInterfaceType.Cellular
+                #elseif os(OSX)
+                    // 允许使用网卡数据流量
+                    rule2.interfaceTypeMatch = NEOnDemandRuleInterfaceType.Ethernet
+                #endif
                 rules.append(rule2)
+                
                 
                 self?.onDemandRules = rules
                 
@@ -113,14 +120,17 @@ extension NEVPNManager {
                     } else {
                         print("Saved!")
                         print("Connect Start...")
-                        do {
-                            try self?.connection.startVPNTunnel()
-                            print("Connect Started!!")
-                            complete(error: nil)
-                        } catch {
-                            print("Connect Error: \(error)")
-                            complete(error: NEVPNError.ConnectionFailed)
-                        }
+                        
+                        self?.loadFromPreferencesWithCompletionHandler({ (e) -> Void in
+                            do {
+                                try self?.connection.startVPNTunnel()
+                                print("Connect Started!!")
+                                complete(error: nil)
+                            } catch {
+                                print("Connect Error: \(error)")
+                                complete(error: NEVPNError.ConnectionFailed)
+                            }
+                        })
                     }
                 })
             }
@@ -132,10 +142,10 @@ extension NEVPNManager {
 let kUserPassword = "cn.ineva.VPNHelper.kUserPassowrd"
 let kSharedSecret = "cn.ineva.VPNHelper.kSharedSecret"
 
-@available(iOS 8.0, *)
+@available(iOS 8.0, *, OSX 10.10, *)
 extension NEVPNProtocolIPSec {
     
-    @available(iOS 8.0, *)
+    @available(iOS 8.0, *, OSX 10.10, *)
     public convenience init(host: String, userName user: String, password: String, sharedSecret: String, localIdentifier: String? = nil, remoteIdentifier: String? = nil ) {
         self.init()
         self.username               = user
