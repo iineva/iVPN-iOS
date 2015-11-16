@@ -9,7 +9,7 @@
 import Foundation
 import NetworkExtension
 
-class KeyChain {
+private class KeyChain {
     
     class func getDataWithKey(key: String) -> NSData? {
         
