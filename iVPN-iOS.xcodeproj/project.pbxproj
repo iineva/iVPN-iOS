@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31F7B5800CF9A126FED7AB45 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4803BF422D8D289F8F5B205 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B0B33F461BF97E3300FB82B6 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B33F451BF97E3300FB82B6 /* NetworkExtension.framework */; };
+		B0B33F491BF97E7C00FB82B6 /* VPNHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B33F481BF97E7C00FB82B6 /* VPNHelper.swift */; };
+		B0B33F511BF97E9800FB82B6 /* VCIPsecVPNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B33F4C1BF97E9800FB82B6 /* VCIPsecVPNManager.m */; };
+		B0B33F521BF97E9800FB82B6 /* VCKetChain.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B33F4E1BF97E9800FB82B6 /* VCKetChain.m */; };
+		B0B33F561BF988A400FB82B6 /* VPNDemand.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B33F551BF988A400FB82B6 /* VPNDemand.m */; };
 		B0C188CE1BEB08980043625A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C188CD1BEB08980043625A /* AppDelegate.swift */; };
 		B0C188D01BEB08980043625A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C188CF1BEB08980043625A /* ViewController.swift */; };
 		B0C188D31BEB08980043625A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C188D11BEB08980043625A /* Main.storyboard */; };
@@ -16,6 +22,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93C52BF5FC33CC8EB6C9AE3F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B0B33F451BF97E3300FB82B6 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		B0B33F471BF97E3300FB82B6 /* iVPN-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "iVPN-iOS.entitlements"; sourceTree = "<group>"; };
+		B0B33F481BF97E7C00FB82B6 /* VPNHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPNHelper.swift; sourceTree = "<group>"; };
+		B0B33F4B1BF97E9800FB82B6 /* VCIPsecVPNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCIPsecVPNManager.h; sourceTree = "<group>"; };
+		B0B33F4C1BF97E9800FB82B6 /* VCIPsecVPNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCIPsecVPNManager.m; sourceTree = "<group>"; };
+		B0B33F4D1BF97E9800FB82B6 /* VCKetChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCKetChain.h; sourceTree = "<group>"; };
+		B0B33F4E1BF97E9800FB82B6 /* VCKetChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCKetChain.m; sourceTree = "<group>"; };
+		B0B33F4F1BF97E9800FB82B6 /* VPNManager-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VPNManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		B0B33F501BF97E9800FB82B6 /* VPNManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VPNManager.podspec; sourceTree = "<group>"; };
+		B0B33F541BF988A400FB82B6 /* VPNDemand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPNDemand.h; sourceTree = "<group>"; };
+		B0B33F551BF988A400FB82B6 /* VPNDemand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPNDemand.m; sourceTree = "<group>"; };
 		B0C188CA1BEB08980043625A /* iVPN-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iVPN-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C188CD1BEB08980043625A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0C188CF1BEB08980043625A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +42,8 @@
 		B0C188D71BEB08980043625A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0C188DA1BEB08980043625A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0C188DC1BEB08980043625A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4803BF422D8D289F8F5B205 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB1AD1F4E476EBA544024A72 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F7B5800CF9A126FED7AB45 /* Pods.framework in Frameworks */,
+				B0B33F461BF97E3300FB82B6 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72AFDFFD707BBD0A25D6B380 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB1AD1F4E476EBA544024A72 /* Pods.debug.xcconfig */,
+				93C52BF5FC33CC8EB6C9AE3F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B0B33F4A1BF97E9800FB82B6 /* VPNManager */ = {
+			isa = PBXGroup;
+			children = (
+				B0B33F4B1BF97E9800FB82B6 /* VCIPsecVPNManager.h */,
+				B0B33F4C1BF97E9800FB82B6 /* VCIPsecVPNManager.m */,
+				B0B33F4D1BF97E9800FB82B6 /* VCKetChain.h */,
+				B0B33F4E1BF97E9800FB82B6 /* VCKetChain.m */,
+				B0B33F4F1BF97E9800FB82B6 /* VPNManager-Bridging-Header.h */,
+				B0B33F501BF97E9800FB82B6 /* VPNManager.podspec */,
+				B0B33F541BF988A400FB82B6 /* VPNDemand.h */,
+				B0B33F551BF988A400FB82B6 /* VPNDemand.m */,
+			);
+			path = VPNManager;
+			sourceTree = "<group>";
+		};
 		B0C188C11BEB08980043625A = {
 			isa = PBXGroup;
 			children = (
 				B0C188CC1BEB08980043625A /* iVPN-iOS */,
 				B0C188CB1BEB08980043625A /* Products */,
+				72AFDFFD707BBD0A25D6B380 /* Pods */,
+				F8B6EF4654499E009F6A3142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +104,9 @@
 		B0C188CC1BEB08980043625A /* iVPN-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B0B33F4A1BF97E9800FB82B6 /* VPNManager */,
+				B0B33F481BF97E7C00FB82B6 /* VPNHelper.swift */,
+				B0B33F471BF97E3300FB82B6 /* iVPN-iOS.entitlements */,
 				B0C188CD1BEB08980043625A /* AppDelegate.swift */,
 				B0C188CF1BEB08980043625A /* ViewController.swift */,
 				B0C188D11BEB08980043625A /* Main.storyboard */,
@@ -67,6 +118,15 @@
 			path = "iVPN-iOS";
 			sourceTree = "<group>";
 		};
+		F8B6EF4654499E009F6A3142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0B33F451BF97E3300FB82B6 /* NetworkExtension.framework */,
+				B4803BF422D8D289F8F5B205 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +134,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0C188DF1BEB08980043625A /* Build configuration list for PBXNativeTarget "iVPN-iOS" */;
 			buildPhases = (
+				C50CFEF0DBBAC92CC6FF89FA /* Check Pods Manifest.lock */,
 				B0C188C61BEB08980043625A /* Sources */,
 				B0C188C71BEB08980043625A /* Frameworks */,
 				B0C188C81BEB08980043625A /* Resources */,
+				92031BBAB63780D45838CE30 /* Embed Pods Frameworks */,
+				46FFF618A8040F8B07B0E938 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -99,6 +162,12 @@
 				TargetAttributes = {
 					B0C188C91BEB08980043625A = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = GC6FQHF5NF;
+						SystemCapabilities = {
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -133,13 +202,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		46FFF618A8040F8B07B0E938 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92031BBAB63780D45838CE30 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C50CFEF0DBBAC92CC6FF89FA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B0C188C61BEB08980043625A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B0C188D61BEB08980043625A /* iVPN_iOS.xcdatamodeld in Sources */,
+				B0B33F521BF97E9800FB82B6 /* VCKetChain.m in Sources */,
 				B0C188D01BEB08980043625A /* ViewController.swift in Sources */,
+				B0B33F511BF97E9800FB82B6 /* VCIPsecVPNManager.m in Sources */,
+				B0B33F491BF97E7C00FB82B6 /* VPNHelper.swift in Sources */,
+				B0B33F561BF988A400FB82B6 /* VPNDemand.m in Sources */,
 				B0C188CE1BEB08980043625A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,23 +372,37 @@
 		};
 		B0C188E01BEB08980043625A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1AD1F4E476EBA544024A72 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iVPN-iOS/iVPN-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "iVPN-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.ineva.iVPN-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iVPN-iOS/VPNManager/VPNManager-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		B0C188E11BEB08980043625A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93C52BF5FC33CC8EB6C9AE3F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iVPN-iOS/iVPN-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "iVPN-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.ineva.iVPN-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iVPN-iOS/VPNManager/VPNManager-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -290,6 +425,7 @@
 				B0C188E11BEB08980043625A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
