@@ -9,6 +9,60 @@
 import Foundation
 import NetworkExtension
 
+class KeyChain {
+    
+    class func getDataWithKey(key: String) -> NSData? {
+        
+        let keychainQuery: [NSObject: AnyObject] =  [
+            kSecClass : kSecClassGenericPassword,
+            kSecAttrGeneric : key,
+            kSecAttrAccount : key,
+            kSecAttrService : NSBundle.mainBundle().bundleIdentifier!,
+            kSecAttrAccessible: kSecAttrAccessibleAlwaysThisDeviceOnly,
+            kSecMatchLimit : kSecMatchLimitOne,
+            kSecReturnPersistentRef : kCFBooleanTrue]
+        
+        var retrievedData: NSData?
+        var extractedData: AnyObject?
+        let status = SecItemCopyMatching(keychainQuery, &extractedData)
+        
+        if (status == errSecSuccess) {
+            retrievedData = extractedData as? NSData
+        } else {
+            print("Unable to fetch item for key = \(key) with error:\(status)")
+        }
+        
+        return retrievedData
+    }
+    
+    class func storeString(string: String, key: String) -> OSStatus {
+        let keychainQuery: [NSObject: AnyObject] =  [
+            kSecClass : kSecClassGenericPassword,
+            kSecAttrGeneric : key,
+            kSecAttrAccount : key,
+            kSecAttrService : NSBundle.mainBundle().bundleIdentifier ?? "",
+            kSecAttrAccessible: kSecAttrAccessibleAlwaysThisDeviceOnly,
+            kSecValueData : string.dataUsingEncoding(NSUTF8StringEncoding) ?? ""]
+        
+        SecItemDelete(keychainQuery)
+        
+        let status = SecItemAdd(keychainQuery, nil)
+        if (status != errSecSuccess) {
+            print("Unable add item with key = \(key) error: \(status)")
+        }
+        
+        return status
+    }
+    
+    /// 保存字符串，并获取keychain中的data
+    class func storeStringAndGetData(string: String, key: String) -> NSData? {
+        self.storeString(string, key: key)
+        return self.getDataWithKey(key)
+    }
+    
+}
+
+
 @available(iOS 8.0, *)
 extension NEVPNManager {
     
@@ -74,26 +128,24 @@ extension NEVPNManager {
     }
 }
 
-let kUserPassword = "user_pwd"
-let kSharedSecret = "SharedSecret"
 
+let kUserPassword = "cn.ineva.VPNHelper.kUserPassowrd"
+let kSharedSecret = "cn.ineva.VPNHelper.kSharedSecret"
+
+@available(iOS 8.0, *)
 extension NEVPNProtocolIPSec {
     
+    @available(iOS 8.0, *)
     public convenience init(host: String, userName user: String, password: String, sharedSecret: String, localIdentifier: String? = nil, remoteIdentifier: String? = nil ) {
-        
         self.init()
-        
-        VPNDemand.storeString(password, key: kUserPassword)
-        VPNDemand.storeString(sharedSecret, key: kSharedSecret)
-        
         self.username               = user
-        self.passwordReference      = VPNDemand.getDataWithKey(kUserPassword)
         self.serverAddress          = host
+        self.passwordReference      = KeyChain.storeStringAndGetData(password, key: kUserPassword)
+        self.sharedSecretReference  = KeyChain.storeStringAndGetData(sharedSecret, key: kSharedSecret)
         self.authenticationMethod   = NEVPNIKEAuthenticationMethod.SharedSecret
-        self.sharedSecretReference  = VPNDemand.getDataWithKey(kSharedSecret)
-        self.localIdentifier        = nil//localIdentifier ?? "vpn"
-        self.remoteIdentifier       = nil//remoteIdentifier ?? "vpn"
-        self.useExtendedAuthentication = true
+        self.localIdentifier        = localIdentifier ?? "vpn"
+        self.remoteIdentifier       = remoteIdentifier ?? "vpn"
         self.disconnectOnSleep      = false
+        self.useExtendedAuthentication = true
     }
 }

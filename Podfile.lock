@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.1.1)
+  - Alamofire (3.1.2)
   - Ono (1.2.2)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - Ono
 
 SPEC CHECKSUMS:
-  Alamofire: 9b0a7188b961a03914a99304488bd226b0e46c0e
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
